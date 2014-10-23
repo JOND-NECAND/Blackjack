@@ -131,9 +131,17 @@ let rec nombrejoueur () =
 
 (*----------------------------------------------------------------------------*)
 (*-------------------------------Liste de joueurs-----------------------------*)
+(* n = nombre de joueur *)
 
-let rec listejoueur j = if (j <> 1) then (creerJoueur "Michel" [] 0 j)::(listejoueur(j-1))
-			else  (creerJoueur "Michel" [] 0 j)::[];;
+let rec listejoueur j n = match n with
+	1 -> [creerJoueur]
+(*j mj arj 1]*)
+	|2|3|4|5|6|7 ->(creerJoueur(*j mj arj n*)::[(creerJoueur nj mj arj 1)]; listejoueur j (n-1)
+	
+
+
+ (* (j <> 1) then (creerJoueur "Michel" [] 0 j)::(listejoueur(j-1))
+			else  (creerJoueur "Michel" [] 0 j)::[];;*)
 	
 
 let j = nombrejoueur();;
