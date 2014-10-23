@@ -77,7 +77,7 @@ let l = List.length x;;
 (*----------------------------------------------------------------------------*)
 (*--------------------------Choi du As---------------------------------------*)
 let rec choixas x = match x with
-	As ->	print_string "Le As prend quelle valeur? 1 ou 11?";
+	As ->	print_string( "Le As prend quelle valeur? 1 ou 11?");
 		let j = read_int () in	
 			if (j = 11) then 11
 			else if (j = 1) then 1
