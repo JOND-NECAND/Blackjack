@@ -51,22 +51,27 @@ let rec accueil () =
 
 				|1 -> print_string("Combien de joueurs serez vous durant la partie? (entre 1 et 7)");
 					let creerJoueur nj mj arj numj = {n=nj ; m=mj ; ar=arj ; num=numj} in
-					let n = read_int() in 
-					let rec listejoueur j n = 
-						match n with
-							1 -> let creerJoueur = {creerJoueur with num = 1 } in creerJoueur::[]
-							|2|3|4|5|6|7 ->let creerJoueur = {creerJoueur with num = n } in creerJoueur::(listejoueur j (n-1))
-							|_ -> print_string("Erreur valeur"); listejoueur j n  
-					in listejoueur j n 
+					let n  b = read_int() ; 
+					let rec listejoueur j b = 
+						match b with
+							1 -> let creerJoueur = {creerJoueur with num = 1 } in creerJoueur::[] 
+							|2 -> let creerJoueur = {creerJoueur with num = n } in creerJoueur::[listejoueur j (b-1)]
+							|3 -> let creerJoueur = {creerJoueur with num = n } in creerJoueur::[listejoueur j (b-1)]
+							|4 -> let creerJoueur = {creerJoueur with num = n } in creerJoueur::[listejoueur j (b-1)]
+							|5 -> let creerJoueur = {creerJoueur with num = n } in creerJoueur::[listejoueur j (b-1)]
+							|6 -> let creerJoueur = {creerJoueur with num = n } in creerJoueur::[listejoueur j (b-1)]
+							|7 -> let creerJoueur = {creerJoueur with num = n } in creerJoueur::[listejoueur j (b-1)]
+							|_ -> print_string("Erreur valeur"); listejoueur j b  
+					 in listejoueur j b 
 
 
 
-					(*let rec nombrejoueur () = 
+					let rec nombrejoueur () = 
 						print_string("Entrez le nombre de joueurs");
 
 						match read_int() with
 						1|2|3|4|5|6|7 -> print_int(read_int() );
-						|_ -> print_string("valeur incorrecte "); nombrejoueur () *)
+						|_ -> print_string("valeur incorrecte "); nombrejoueur () 
 						(*let j = read_int () in
 							if ((j>1) && (j<=7)) then j
 							else 			
@@ -74,22 +79,22 @@ let rec accueil () =
 								   
 					 in nombrejoueur () *)   
 
-				 |2 -> print_string("Combien d'argent de départ voulez vous?"); 
+				|2 -> print_string("Combien d'argent de départ voulez vous?"); 
 						
-					let creerJoueur = { creerJoueur with ar = read_int()} in
+					(*let creerJoueur = { creerJoueur with ar = read_int()} in
 					print_string("Etes- vous sur du montant? (o/n)");
 					print_newline();
 					print_int(creerJoueur.ar);
 						let rec choix () = match read_line() with
 							o -> mid ()
 							|n -> print_string("Veuillez saisir un montant"); print_newline(); j x 
-							|_ -> print_string("Veuillez saisir une autre réponse "); print_newline(); choix ()  
+							|_ -> print_string("Veuillez saisir une autre réponse "); print_newline(); choix () *) 
 						  
    
 				|3 -> print_string("Quels sont les noms des joueurs?");
 
 				|4 -> print_string("Quelle valeur prendre l'AS ? (1 ou 11) ");
-					let rec choixas x = match x with 
+					(*let rec choixas x = match x with 
 						As -> print_string ("Le As prend quelle valeur? 1 ou 11?"); 
 							let j = read_int () in	
 								if (j = 11) then 11
@@ -99,7 +104,7 @@ let rec accueil () =
 										choixas x )
 									
 						| Roi| Dame| Valet -> 10
-						| Nombre n -> n
+						| Nombre n -> n*)
 
 				|5 -> print_string("Combien de paquet de carte voulez-vous? (entre 1 et 4)");
 
